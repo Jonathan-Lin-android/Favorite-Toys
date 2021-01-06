@@ -17,6 +17,7 @@ package com.example.android.favoritetoys;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,5 +25,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView toyNamesTextView = (TextView) findViewById(R.id.tv_toy_names);
+
+        String toyNamesArray [] = ToyBox.getToyNames();
+        for (String s : toyNamesArray)
+        {
+            toyNamesTextView.append(s + "\n\n\n");
+        }
     }
 }
